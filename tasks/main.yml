@@ -1,0 +1,16 @@
+- name: FATAL
+  fail: msg="This role is only compatible with macOS"
+  when: ansible_facts['os_family'] != 'Darwin'
+
+- block:
+  - include: set_autoupdate_tolerance.yml
+
+  - include: requirements.yml
+
+  - include: uninstall.yml
+    when: homebrew_auto_update_override_config | bool
+
+  - include: install.yml
+  # end block
+  become: "{{ (target_user_id != ansible_user_id) | bool }}"
+  become_user: "{{ target_user_id }}"

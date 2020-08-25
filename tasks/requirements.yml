@@ -1,0 +1,20 @@
+---
+- name:  Install domt4/autoupdate tap
+  homebrew_tap:
+    tap: "{{ homebrew_auto_update_tap }}"
+    state: present
+
+- name:  Install autoupdate dependencies
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ homebrew_auto_update_dependencies }}"
+
+- name:  Make sure that the user's app support directories exists
+  file:
+    path: "{{ item | expanduser}}"
+    state: directory
+  loop:
+    - "{{ user_launch_agents_dir }}"
+    - "{{ user_application_support_dir }}"
+...

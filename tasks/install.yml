@@ -1,0 +1,41 @@
+---
+- name: Check whether autoupdate LaunchAgent is already installed
+  stat:
+    path: '{{ item }}'
+  loop:
+    - "{{ homebrew_auto_update_plist }}"
+    - "{{ homebrew_auto_update_updater }}"
+  register: files_stat
+
+- name: Check result
+  debug:
+    var: files_stat
+  when: verbose | bool
+
+- name:  Setup autoupdate LaunchAgent (unless it's already installed)
+  command:
+    argv:
+      - brew
+      - autoupdate
+      - --start
+      - "{{ homebrew_auto_update_interval | default(43200) }}"
+      - "{{ '--upgrade' if ( homebrew_auto_update_upgrade | bool ) }}"
+      - "{{ '--cleanup' if ( homebrew_auto_update_cleanup | bool ) }}"
+      - "{{ '--enable-notification' if ( homebrew_auto_update_enable_notification | bool ) }}"
+  register: install_result
+  when: files_stat.results | rejectattr('stat.exists') | list
+
+- name: Install Log
+  debug:
+    var: install_result.stdout_lines
+  when: install_result.stdout_lines is defined
+
+- debug:
+    msg: "Homebrew autoupdate LaunchAgent is already installed"
+  when: install_result.stdout_lines is not defined
+
+- name: Install Log Extended
+  debug:
+    var: install_result
+  when: verbose | bool
+...

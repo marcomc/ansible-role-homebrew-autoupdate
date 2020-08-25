@@ -1,0 +1,14 @@
+---
+- name: Uninstall previous autoupdate LaunchAgent
+  command:
+    argv:
+      - brew
+      - autoupdate
+      - --delete
+  register: uninstall_result
+
+- name: Uninstall Log Extended
+  debug:
+    var: uninstall_result
+  when: verbose | bool
+...
