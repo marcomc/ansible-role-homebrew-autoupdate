@@ -43,11 +43,12 @@ See `test/integration/default/default.yml` for examples of applications installa
 target_user_id:                             "{{ ansible_user_id }}"  # user you want to target
 homebrew_auto_update_for_all_shell_types:   no #  no: apply the settings only to the user's default shellcheck
                                                # yes: apply the settings to all the shell supported: bash, zsh and fish
-user_launch_agents_dir:                     "/Users/{{ target_user_id }}/Library/LaunchAgents"
-user_application_support_dir:               "/Users/{{ target_user_id }}/Library/Application Support/"
+homebrew_user_launch_agents_dir:            "/Users/{{ target_user_id }}/Library/LaunchAgents"
+homebrew_user_application_support_dir:      "/Users/{{ target_user_id }}/Library/Application Support/"
+homebrew_user_default_shell                 "" # if not set it will be autodetected
 
-homebrew_auto_update_plist:                 "{{ user_launch_agents_dir }}/com.github.domt4.homebrew-autoupdate.plist" # file required by homebrew-autoupdate
-homebrew_auto_update_updater:               "{{ user_application_support_dir }}/com.github.domt4.homebrew-autoupdate/updater" # file required by homebrew-autoupdate
+homebrew_auto_update_plist:                 "{{ homebrew_user_launch_agents_dir }}/com.github.domt4.homebrew-autoupdate.plist" # file required by homebrew-autoupdate
+homebrew_auto_update_updater:               "{{ homebrew_user_application_support_dir }}/com.github.domt4.homebrew-autoupdate/updater" # file required by homebrew-autoupdate
 
 homebrew_auto_update_tap:                   'domt4/autoupdate'       # `homebrew-autoupdate` homebrew tap
 homebrew_auto_update_dependencies:           [ 'terminal-notifier' ] # `homebrew-autoupdate` homebrew dependency
