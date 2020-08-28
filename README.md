@@ -41,7 +41,8 @@ See `test/integration/default/default.yml` for examples of applications installa
 
 ```
 target_user_id:                             "{{ ansible_user_id }}"  # user you want to target
-
+homebrew_auto_update_for_all_shell_types:   no #  no: apply the settings only to the user's default shellcheck
+                                               # yes: apply the settings to all the shell supported: bash, zsh and fish
 user_launch_agents_dir:                     "/Users/{{ target_user_id }}/Library/LaunchAgents"
 user_application_support_dir:               "/Users/{{ target_user_id }}/Library/Application Support/"
 
