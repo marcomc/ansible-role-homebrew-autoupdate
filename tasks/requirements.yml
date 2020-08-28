@@ -15,6 +15,6 @@
     path: "{{ item | expanduser}}"
     state: directory
   loop:
-    - "{{ user_launch_agents_dir }}"
-    - "{{ user_application_support_dir }}"
+    - "{{ homebrew_user_launch_agents_dir }}"
+    - "{{ homebrew_user_application_support_dir }}"
 ...
