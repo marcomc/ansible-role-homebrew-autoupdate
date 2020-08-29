@@ -13,7 +13,9 @@
       homebrew_user_default_shell: "{{ item  }}"
     loop:
       - "{{ command_result.stdout | basename }}"
-  when: homebrew_user_default_shell is not defined or homebrew_user_default_shell == ''
+  when:
+    - homebrew_user_default_shell is not defined or homebrew_user_default_shell == ''
+    - not homebrew_auto_update_for_all_shell_types|bool
 
 - name: Set 'HOMEBREW_AUTO_UPDATE_SECS' in the user's {{ homebrew_user_default_shell }} config
   lineinfile:
