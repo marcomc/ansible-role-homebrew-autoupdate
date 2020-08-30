@@ -12,7 +12,7 @@ A user owned LaunchAgent is installed. It will run `autoupdate` periodically. If
 
 The `HOMEBREW_AUTO_UPDATE_SECS` will define a threshold in seconds that will prevent homebrew to update it's database if an update has already been run within the defined threshold.
 
-## Requirements & Dependencies
+## (Soft) Requirements & Dependencies
 * [Jeff Geerling](https://github.com/geerlingguy)'s' [geerlingguy.homebrew](https://github.com/geerlingguy/ansible-role-homebrew) which is defined as Ansible Galaxy dependency
 * [Julien Blanchard](https://github.com/julienXX)'s [terminal-notified](https://github.com/julienXX/terminal-notifier) which is automatically installed from hombrew during the role's execution (if not already present)
 
