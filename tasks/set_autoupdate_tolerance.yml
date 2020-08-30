@@ -19,22 +19,24 @@
 
 - name: Set 'HOMEBREW_AUTO_UPDATE_SECS' in the user's {{ homebrew_user_default_shell }} config
   lineinfile:
-    path: "{{ item.config_file }}"
+    path: "/Users/{{ homebrew_user }}/{{ item.config_file }}"
     state: present
     regexp: '^.*HOMEBREW_AUTO_UPDATE_SECS.*$'
     line: "{{ item.line }}"
     create: yes
+    owner: "{{ homebrew_user }}"
+    group: 'staff'
   loop:
     - shell: 'bash'
-      config_file: "/Users/{{ homebrew_user }}/.bashrc"
+      config_file: ".bashrc"
       line: "export HOMEBREW_AUTO_UPDATE_SECS='{{ homebrew_auto_update_tollerance }}'"
 
     - shell: 'zsh'
-      config_file: "/Users/{{ homebrew_user }}/.zshrc"
+      config_file: ".zshrc"
       line: "export HOMEBREW_AUTO_UPDATE_SECS='{{ homebrew_auto_update_tollerance }}'"
 
     - shell: 'fish'
-      config_file: "/Users/{{ homebrew_user }}/.config/fish/config.fish"
+      config_file: ".config/fish/config.fish"
       line: "set -gx HOMEBREW_AUTO_UPDATE_SECS '{{ homebrew_auto_update_tollerance }}'"
   when: item.shell == homebrew_user_default_shell or homebrew_auto_update_for_all_shell_types|bool
 ...
