@@ -12,5 +12,5 @@
 
   - include: install.yml
   # end block
-  become: "{{ (target_user_id != ansible_user_id) | bool }}"
-  become_user: "{{ target_user_id }}"
+  become: "{{ (homebrew_user != ansible_user_id) | bool }}"
+  become_user: "{{ homebrew_user }}"

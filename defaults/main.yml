@@ -1,9 +1,9 @@
 ---
-target_user_id:                             "{{ ansible_user_id }}"
+homebrew_user:                             "{{ ansible_user_id }}"
 homebrew_auto_update_for_all_shell_types:   no #  no: apply the settings only to the user's default shellcheck
                                                # yes: apply the settings to all the shell supported: bash, zsh and fish
-homebrew_user_launch_agents_dir:            "/Users/{{ target_user_id }}/Library/LaunchAgents"
-homebrew_user_application_support_dir:      "/Users/{{ target_user_id }}/Library/Application Support/"
+homebrew_user_launch_agents_dir:            "/Users/{{ homebrew_user }}/Library/LaunchAgents"
+homebrew_user_application_support_dir:      "/Users/{{ homebrew_user }}/Library/Application Support/"
 homebrew_user_default_shell:                ""
 homebrew_auto_update_plist:                 "{{ homebrew_user_launch_agents_dir }}/com.github.domt4.homebrew-autoupdate.plist"
 homebrew_auto_update_updater:               "{{ homebrew_user_application_support_dir }}/com.github.domt4.homebrew-autoupdate/updater"

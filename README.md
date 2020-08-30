@@ -1,5 +1,4 @@
 # Homebrew Autoupdate ansible role
-
 Ansible role to setup Hobrew to regularly autoupdated
 It is idempotent and will only setup autoupdated if it is not setup already (unless it is forced to override the current setup)
 
@@ -21,11 +20,9 @@ It was tested on the following versions:
  * 2.9
 
 ### Operating systems
-
 Target MacOS 10.15 possibly earlier versions too (not yet tested)
 
 ## Example Playbook
-
 Just include this role in your list.
 For example
 
@@ -36,15 +33,14 @@ For example
 ```
 
 ## Variables
-
 See `test/integration/default/default.yml` for examples of applications installation.
 
 ```
-target_user_id:                             "{{ ansible_user_id }}"  # user you want to target
+homebrew_user:                             "{{ ansible_user_id }}"  # user you want to target
 homebrew_auto_update_for_all_shell_types:   no #  no: apply the settings only to the user's default shellcheck
                                                # yes: apply the settings to all the shell supported: bash, zsh and fish
-homebrew_user_launch_agents_dir:            "/Users/{{ target_user_id }}/Library/LaunchAgents"
-homebrew_user_application_support_dir:      "/Users/{{ target_user_id }}/Library/Application Support/"
+homebrew_user_launch_agents_dir:            "/Users/{{ homebrew_user }}/Library/LaunchAgents"
+homebrew_user_application_support_dir:      "/Users/{{ homebrew_user }}/Library/Application Support/"
 homebrew_user_default_shell                 "" # if not set it will be autodetected
 
 homebrew_auto_update_plist:                 "{{ homebrew_user_launch_agents_dir }}/com.github.domt4.homebrew-autoupdate.plist" # file required by homebrew-autoupdate
@@ -61,18 +57,13 @@ homebrew_auto_update_tollerance:             300                     # Do not up
 ```
 ## Notes on Veriables
 
-
-### Target User: `target_user_id`
-This role support a 'Target User', meaning that you can specify the username you want to configure the `hombrew autoupdate` LaunchAgent.
-
+###  Homebrew User: `homebrew_user`
+You can specify the username you want to configure the `hombrew autoupdate` LaunchAgent (defaults to the user that is running ansible).
 
 ## Continuous integration
-
 This role has (not yet) a travis basic test (for github) only.
 
-
 ## Troubleshooting & Known issues
-
 
 ## Copyright
 Marco Massari Calderone (c) 2020
