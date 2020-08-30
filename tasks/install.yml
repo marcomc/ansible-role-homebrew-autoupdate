@@ -24,6 +24,8 @@
       - "{{ '--enable-notification' if ( homebrew_auto_update_enable_notification | bool ) }}"
   register: install_result
   when: files_stat.results | rejectattr('stat.exists') | list
+  changed_when: not homebrew_auto_update_override_config
+
 
 - name: Install Log
   debug:
