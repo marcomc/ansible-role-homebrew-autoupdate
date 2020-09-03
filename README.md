@@ -4,7 +4,7 @@ It is idempotent and will only setup autoupdated if it is not setup already (unl
 
 Homebrew autoupdate is configured:
 * installing [Dominyk Tiller](https://github.com/DomT4)'s [homebrew autoupate extension](https://github.com/DomT4/homebrew-autoupdate)
-* confguring hombrew's `HOMEBREW_AUTO_UPDATE_SECS` environment variable
+* confguring homebrew's `HOMEBREW_AUTO_UPDATE_SECS` environment variable
 
 ## How it works
 A user owned LaunchAgent is installed. It will run `autoupdate` periodically. If enabled it can run `upgrade` and `cleanup`.
@@ -13,7 +13,7 @@ The `HOMEBREW_AUTO_UPDATE_SECS` will define a threshold in seconds that will pre
 
 ## (Soft) Requirements & Dependencies
 * [Jeff Geerling](https://github.com/geerlingguy)'s' [geerlingguy.homebrew](https://github.com/geerlingguy/ansible-role-homebrew) which is defined as Ansible Galaxy dependency
-* [Julien Blanchard](https://github.com/julienXX)'s [terminal-notified](https://github.com/julienXX/terminal-notifier) which is automatically installed from hombrew during the role's execution (if not already present)
+* [Julien Blanchard](https://github.com/julienXX)'s [terminal-notified](https://github.com/julienXX/terminal-notifier) which is automatically installed from homebrew during the role's execution (if not already present)
 
 ### Ansible
 It was tested on the following versions:
@@ -58,7 +58,7 @@ homebrew_auto_update_tollerance:             300                     # Do not up
 ## Notes on Veriables
 
 ###  Homebrew User: `homebrew_user`
-You can specify the username you want to configure the `hombrew autoupdate` LaunchAgent (defaults to the user that is running ansible).
+You can specify the username you want to configure the `homebrew autoupdate` LaunchAgent (defaults to the user that is running ansible).
 
 ## Continuous integration
 This role has (not yet) a travis basic test (for github) only.
