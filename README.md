@@ -1,5 +1,5 @@
 # Homebrew Autoupdate ansible role
-Ansible role to setup Hobrew to regularly autoupdated
+Ansible role to setup Homebrew to regularly autoupdated
 It is idempotent and will only setup autoupdated if it is not setup already (unless it is forced to override the current setup)
 
 Homebrew autoupdate is configured:
@@ -29,7 +29,7 @@ For example
 ```
 - host: all
   roles:
-    - marcomc.hombrew-autoupate
+    - marcomc.homebrew-autoupate
 ```
 
 ## Variables
