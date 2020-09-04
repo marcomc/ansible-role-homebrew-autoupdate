@@ -64,6 +64,7 @@ You can specify the username you want to configure the `homebrew autoupdate` Lau
 This role has (not yet) a travis basic test (for github) only.
 
 ## Troubleshooting & Known issues
+in some circumstances using the option `homebrew_auto_update_enable_notification` might return the error `Error: undefined method '[]' for Formula:Class`. The issue is inconsistent. Need more investigations.
 
 ## Copyright
 Marco Massari Calderone (c) 2020
