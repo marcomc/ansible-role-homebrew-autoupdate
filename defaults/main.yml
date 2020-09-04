@@ -13,7 +13,7 @@ homebrew_auto_update_dependencies:           [ 'terminal-notifier' ]
 homebrew_auto_update_override_config:        no    # override any existing config
 homebrew_auto_update_interval:               43200 # 12 hours
 homebrew_auto_update_upgrade:                no    # yes: will uprgade all formulae and casks, no: will only update the homebrew database
-homebrew_auto_update_cleanup:                no   # 5 minutes
-homebrew_auto_update_enable_notification:    no   # 5 minutes
+homebrew_auto_update_cleanup:                no   
+homebrew_auto_update_enable_notification:    no
 homebrew_auto_update_tollerance:             300   # 5 minutes
 ...
