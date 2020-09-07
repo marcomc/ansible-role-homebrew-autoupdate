@@ -7,12 +7,12 @@
 - name:  Install autoupdate dependencies
   homebrew:
     name: "{{ item }}"
-    state: latest
+    state: present
   loop: "{{ homebrew_auto_update_dependencies }}"
 
 - name:  Make sure that the user's app support directories exists
   file:
-    path: "{{ item | expanduser}}"
+    path: "{{ item | expanduser }}"
     state: directory
   loop:
     - "{{ homebrew_user_launch_agents_dir }}"
