@@ -4,6 +4,7 @@ It is idempotent and will only setup autoupdated if it is not setup already (unl
 
 Homebrew autoupdate is configured:
 * installing [Dominyk Tiller](https://github.com/DomT4)'s [homebrew autoupate extension](https://github.com/DomT4/homebrew-autoupdate)
+  * which places the autoupdate agent in `~/Library/LaunchAgents/`
 * confguring homebrew's `HOMEBREW_AUTO_UPDATE_SECS` environment variable
 
 ## How it works
