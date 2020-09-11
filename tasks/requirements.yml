@@ -14,6 +14,7 @@
   file:
     path: "{{ item | expanduser }}"
     state: directory
+    mode: 0755
   loop:
     - "{{ homebrew_user_launch_agents_dir }}"
     - "{{ homebrew_user_application_support_dir }}"

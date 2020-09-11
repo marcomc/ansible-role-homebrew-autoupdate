@@ -26,6 +26,7 @@
     create: yes
     owner: "{{ homebrew_user }}"
     group: 'staff'
+    mode: 0600
   loop:
     - shell: 'bash'
       config_file: ".bashrc"
