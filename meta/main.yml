@@ -3,6 +3,7 @@ galaxy_info:
   author: Marco Massari Calderone
   description: Ansible role to configure homebrew autoupdate on OSX.
   license: MIT
+  role_name: homebrew_autoupdate
   min_ansible_version: 2.0
   platforms:
     - name: macOS
