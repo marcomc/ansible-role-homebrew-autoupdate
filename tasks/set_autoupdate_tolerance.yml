@@ -39,5 +39,7 @@
     - shell: 'fish'
       config_file: ".config/fish/config.fish"
       line: "set -gx HOMEBREW_AUTO_UPDATE_SECS '{{ homebrew_auto_update_tollerance }}'"
-  when: item.shell == homebrew_user_default_shell or homebrew_auto_update_for_all_shell_types|bool
+  when:
+    - item.shell == homebrew_user_default_shell|default('') or
+      homebrew_auto_update_for_all_shell_types|bool
 ...
