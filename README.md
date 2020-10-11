@@ -34,7 +34,7 @@ For example
 ```
 - host: all
   roles:
-    - marcomc.homebrew-autoupate
+    - marcomc.homebrew_autoupate
 ```
 
 ## Variables
