@@ -3,6 +3,7 @@
   - name: Retrive user's default shell
     shell: dscl . -read /Users/{{ homebrew_user }} UserShell | sed 's/ //g' | cut -d ':' -f2
     register: command_result
+    changed_when: no
 
   - debug:
       msg: "{{ command_result }}"
