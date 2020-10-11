@@ -26,7 +26,6 @@
   when: files_stat.results | rejectattr('stat.exists') | list
   changed_when: not homebrew_auto_update_override_config
 
-
 - name: Install Log
   debug:
     var: install_result.stdout_lines

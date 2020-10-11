@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/marcomc/ansible-role-homebrew-autoupdate.svg?branch=master)](https://travis-ci.com/marcomc/ansible-role-homebrew-autoupdate)
+
 # Homebrew Autoupdate ansible role
 Ansible role to setup Homebrew to regularly autoupdated
 It is idempotent and will only setup autoupdated if it is not setup already (unless it is forced to override the current setup)
@@ -6,6 +8,8 @@ Homebrew autoupdate is configured:
 * installing [Dominyk Tiller](https://github.com/DomT4)'s [homebrew autoupate extension](https://github.com/DomT4/homebrew-autoupdate)
   * which places the autoupdate agent in `~/Library/LaunchAgents/`
 * confguring homebrew's `HOMEBREW_AUTO_UPDATE_SECS` environment variable
+
+Used in [Splinter, an opinionated provisioning tool for macOS](https://github.com/marcomc/splinter).
 
 ## How it works
 A user owned LaunchAgent is installed. It will run `autoupdate` periodically. If enabled it can run `upgrade` and `cleanup`.
@@ -67,9 +71,8 @@ This role has (not yet) a travis basic test (for github) only.
 ## Troubleshooting & Known issues
 in some circumstances using the option `homebrew_auto_update_enable_notification` might return the error `Error: undefined method '[]' for Formula:Class`. The issue is inconsistent. Need more investigations.
 
-## Copyright
-Marco Massari Calderone (c) 2020
-
 ## License
+[MIT](LICENSE)
 
-MIT
+## Copyright
+Marco Massari Calderone (c) 2020 - marco@marcomc.com
