@@ -6,7 +6,7 @@
       - autoupdate
       - --delete
   register: uninstall_result
-  changed_when: no 
+  changed_when: no
 
 - name: Uninstall Log Extended
   debug:
